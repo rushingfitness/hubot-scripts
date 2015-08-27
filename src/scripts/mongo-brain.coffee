@@ -50,7 +50,7 @@ module.exports = (robot) ->
       robot.logger.debug 'Successfully authenticated with mongo'
       console.log "This is the response to client"
       console.log client
-      collection = new Collection client, client.Server, dbname, 'hubot_storage'
+      collection = new Collection client, client.Server, dbname, 'hubot_storage', null, {promiseLibrary: null}
 
       collection.find().limit(1).toArray (err, results) ->
         return error err if err
